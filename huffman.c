@@ -105,8 +105,9 @@ int isLeaf(struct MinHNode *root) {
 
 struct MinHeap *createAndBuildMinHeap(char item[], int freq[], int size) {
   struct MinHeap *minHeap = createMinH(size);
+  int i;
 
-  for (int i = 0; i < size; ++i)
+  for (i = 0; i < size; ++i)
     minHeap->array[i] = newNode(item[i], freq[i]);
 
   minHeap->size = size;
