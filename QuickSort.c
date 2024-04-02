@@ -9,6 +9,8 @@ void printArray(int arr[], int low, int high){
 }
 void quickSort(int arr[], int low, int high)
 {
+	printf("\nReceived Array : %d to %d", low, high);
+	printArray(arr, low, high);
 	int pivot = low;
 	int i = pivot + 1;
 	int j = high, k;
@@ -36,10 +38,10 @@ void quickSort(int arr[], int low, int high)
 		arr[pivot] = arr[pivot] + arr[j];
 		arr[j] = arr[pivot] - arr[j];
 		arr[pivot] = arr[pivot] - arr[j];
-		printf("\nSwap Pivot %d & %d :", arr[pivot], arr[j]);
+		printf("\nSwap Pivot %d & %d", arr[pivot], arr[j]);
 		printArray(arr, 0, high);
 	}
-	if (low < j)
+	if (low+1 < j)
 	{
 		printf("\nSend Left Array : %d & %d", low, j);
 		quickSort(arr, low, j);
@@ -48,7 +50,7 @@ void quickSort(int arr[], int low, int high)
 		printf("\nSend Right Array : %d & %d", j+1, high);
 		quickSort(arr, j + 1, high);
 	}
-	printArray(arr, low, high); 
+//	printArray(arr, low, high); 
 }
 int main()
 {
@@ -61,8 +63,10 @@ int main()
 //		printf("Enter element at %d: ", i);
 //		scanf("%d", &arr[i]);
 //	}
-	int arr[] = {15,5,24,8,1,3,16,10,20};
+	int arr[] = {1,5,24,8,1,3,16,10,20};
+//	int arr[] = {40,-20,70,14,60,61,97,30};
 	int n = sizeof(arr)/sizeof(arr[0]);
 	quickSort(arr, 0, n - 1);
+	printArray(arr, 0, n-1);
 	return 0;
 }
